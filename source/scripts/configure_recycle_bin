@@ -59,7 +59,7 @@ if ($smb_file) {
 					"recycle:minsize"			=> 1,
 					"recycle:versions"			=> "Yes",
 					"recycle:exclude"			=> "",   
-					"recycle:exclude_dir"		=> ".Recycle.Bin",
+					"recycle:exclude_dir"		=> '".Recycle.Bin"',
 					"veto files"				=> ""
 	);
 
@@ -229,6 +229,12 @@ if ($smb_file) {
 
 	/* Write the file of inotify directories to monitor. */
 	if ($recycle_bins) {
+		/* Be sure the temp directory exists. */
+		if (! is_dir("/tmp/".RECYCLE_PLUGIN)) {
+			mkdir("/tmp/".RECYCLE_PLUGIN, 0777, true);
+		}
+
+		/* This is the output file. */
 		$file	= $ud_config_file ? $UDrecycleBinsFile : $recycleBinsFile;
 
 		/* Write the inotify list of directories to monitor. */

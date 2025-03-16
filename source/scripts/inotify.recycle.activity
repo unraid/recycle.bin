@@ -11,6 +11,12 @@ PROG_NAME=${plugin}
 
 # If recycle bin inotify is already running, don't run it again
 if [ -e "/var/run/${plugin}.pid" ] && [ ! -e "/var/run/${inotify}.pid" ]; then
+	# If the recycle bins file does not exist, then inotify will not start
+	if [ ! -e $recycle_bins_file ]; then
+		logger "Recycle Bin inotify failed to start" -t"$PROG_NAME"
+		exit 1
+	fi
+
 	# Create pid file to indicate inotify is running.
 	echo $$ > /var/run/${inotify}.pid
 

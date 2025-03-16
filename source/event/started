@@ -7,6 +7,6 @@ CONFIG="/boot/config/plugins/${plugin}/${plugin}.cfg"
 source $CONFIG
 
 # Start recycle bin if it is enabled.
-if [ "$SERVICE" = "enable" ]; then
+if [ "$SERVICE" = "enable" ] && [ ! -e /var/run/${plugin}.pid ]; then
 	/usr/local/emhttp/plugins/${plugin}/scripts/rc.${plugin} start 30 1>/dev/null &
 fi
