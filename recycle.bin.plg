@@ -1,7 +1,7 @@
 <?xml version='1.0' standalone='yes'?>
 <!DOCTYPE PLUGIN [
 <!ENTITY name		"recycle.bin">
-<!ENTITY author		"dlandon">
+<!ENTITY author		"Limetech">
 <!ENTITY version	"2025.03.16">
 <!ENTITY launch		"Settings/RecycleBin">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/unraid/&name;/master">
@@ -25,7 +25,7 @@
 - Fix: Startup of Recycle Bin to fix inotify crash.
 - Fix: Recycle Bin size and shares not displaying.
 
-###2026.03.06
+###2025.03.06
 - Add: Change to Unraid repository.
 
 ###2025.03.03
